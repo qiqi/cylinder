@@ -16,7 +16,7 @@ if(NOT DEFINED CUDA_ARCH)
     set(CUDA_ARCH sm_60)
 endif(NOT DEFINED CUDA_ARCH)
 
-set(CMAKE_CXX_FLAGS "-O3 ${CMAKE_CXX_FLAGS} -I${NUMPY_INCLUDE_DIR}")
+set(CMAKE_CXX_FLAGS "-O3 -Wall ${CMAKE_CXX_FLAGS} -I${NUMPY_INCLUDE_DIR}")
 set(CUDA_NVCC_FLAGS -ccbin g++;${CUDA_NVCC_FLAGS};-arch=${CUDA_ARCH}; --std=c++14;-Wno-deprecated-gpu-targets; -lineinfo; -use_fast_math; -DFLOW360_GPU)
 
 SET(CMAKE_SKIP_BUILD_RPATH FALSE)

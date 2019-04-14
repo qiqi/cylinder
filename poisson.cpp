@@ -1,3 +1,5 @@
+#include "poisson.h"
+
 __device__
 float laplace_cr(float * r, float * t) {
     float drc = (r[2] - r[0]) / 2.0;
@@ -59,8 +61,8 @@ void laplace_iter(float * pNext, float * p, float * b, float * r, float * t,
         laplace_iter_i(pNext, p, b, r, t, ir, it, nr, nt);
 }
 
-float * laplace_iters(float * pNext, float * p, float * b, float * r, float * t,
-                      int nr, int nt, int nIters)
+float * laplace_iters(float * pNext, float * p, float * b,
+                      float * r, float * t, int nr, int nt, int nIters)
 {
     for (int iIter = 0; iIter < nIters; ++iIter) {
         laplace_iter
